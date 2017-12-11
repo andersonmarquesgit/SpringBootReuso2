@@ -3,7 +3,7 @@ package com.engreuso.exceptions;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="No such Customer")  // 404
+@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="No such User")  // 404
 public class UserNotFoundException extends RuntimeException {
 
 	private static final long serialVersionUID = 137744895179504666L;

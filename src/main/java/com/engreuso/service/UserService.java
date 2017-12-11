@@ -10,6 +10,5 @@ public interface UserService {
 	User findOne(Long id);
 	User update(Long id, User userUpdated);
 	void delete(Long id);
-	User saveOrderByCustomerID(Long id, Profile profile);
 
 }

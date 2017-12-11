@@ -60,16 +60,4 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-	@Override
-	public User saveOrderByCustomerID(Long id, Profile profile) {
-		User user = userRepository.findOne(id);
-		if (user == null) {
-			throw new UserNotFoundException(id);
-		}else {
-			profile.setUser(user);
-			orderRepository.save(profile);
-		}
-		return user;
-	}
-
 }

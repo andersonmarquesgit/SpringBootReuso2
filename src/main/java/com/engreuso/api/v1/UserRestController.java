@@ -15,43 +15,38 @@ import com.engreuso.model.User;
 import com.engreuso.service.UserService;
 
 @RestController
-@RequestMapping("/customers")
+@RequestMapping("/users")
 public class UserRestController {
 
 	@Autowired
-	private UserService customerService;
+	private UserService userService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public @ResponseBody Iterable listAll() {
-		return customerService.findAll();
+		return userService.findAll();
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public User save(@RequestBody User customer) {
-		return customerService.save(customer);
+	public User save(@RequestBody User user) {
+		return userService.save(user);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public User get(@PathVariable("id") Long id) {
-		return customerService.findOne(id);
+		return userService.findOne(id);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
-	public @ResponseBody User update(@PathVariable("id") Long id, @RequestBody User customerUpdated) {
-		return customerService.update(id, customerUpdated);
+	public @ResponseBody User update(@PathVariable("id") Long id, @RequestBody User userUpdated) {
+		return userService.update(id, userUpdated);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable("id") Long id) {
-		customerService.delete(id);
+		userService.delete(id);
 	}
 	
-	@RequestMapping(value = "/{id}/orders", method = RequestMethod.POST)
-	@ResponseStatus(HttpStatus.CREATED)
-	public User saveOrderByCustomerID(@PathVariable("id") Long id, @RequestBody Profile order) {
-		return customerService.saveOrderByCustomerID(id, order);
-	}
 }

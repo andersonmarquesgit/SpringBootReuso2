@@ -21,3 +21,9 @@ INSERT INTO tb_user(id, name, email, password, age)
 -- Inserts de TB_PROFILE --
 INSERT INTO tb_profile(id, view, insert, update, delete, function_id, user_id)
     VALUES (1, true, true, true, false, 1, 1);
+    
+INSERT INTO tb_profile(id, view, insert, update, delete, function_id, user_id)
+    VALUES (2, true, false, false, false, 2, 1);
+    
+INSERT INTO tb_profile(id, view, insert, update, delete, function_id, user_id)
+    VALUES (3, true, true, true, false, 3, 1);
