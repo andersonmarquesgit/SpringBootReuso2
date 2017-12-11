@@ -13,24 +13,33 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="tb_order")
+@Table(name="tb_profile")
 public class Profile {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 	
-	@Column(name="number")
-	private Long orderNumber;
-	
 	@JsonIgnore
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="customer_id")
-	private User customer;
+	@JoinColumn(name="user_id")
+	private User user;
 	
-	private String reason;
+	@ManyToOne
+	@JoinColumn(name="function_id")
+	private Function function;
 	
-	private String service;
+	@Column(name="view")
+	private Boolean viewOperation;
+	
+	@Column(name="insert")
+	private Boolean insertOperation;
+	
+	@Column(name="update")
+	private Boolean updateOperation;
+	
+	@Column(name="delete")
+	private Boolean deleteOperation;
 	
 	public Long getId() {
 		return id;
@@ -40,36 +49,52 @@ public class Profile {
 		this.id = id;
 	}
 
-	public Long getOrderNumber() {
-		return orderNumber;
+	public User getUser() {
+		return user;
 	}
 
-	public void setOrderNumber(Long orderNumber) {
-		this.orderNumber = orderNumber;
+	public void setUser(User customer) {
+		this.user = customer;
 	}
 
-	public String getReason() {
-		return reason;
+	public Function getFunction() {
+		return function;
 	}
 
-	public void setReason(String reason) {
-		this.reason = reason;
+	public void setFunction(Function function) {
+		this.function = function;
 	}
 
-	public String getService() {
-		return service;
+	public Boolean getViewOperation() {
+		return viewOperation;
 	}
 
-	public void setService(String service) {
-		this.service = service;
+	public void setViewOperation(Boolean viewOperation) {
+		this.viewOperation = viewOperation;
 	}
 
-	public User getCustomer() {
-		return customer;
+	public Boolean getInsertOperation() {
+		return insertOperation;
 	}
 
-	public void setCustomer(User customer) {
-		this.customer = customer;
+	public void setInsertOperation(Boolean insertOperation) {
+		this.insertOperation = insertOperation;
+	}
+
+	public Boolean getUpdateOperation() {
+		return updateOperation;
+	}
+
+	public void setUpdateOperation(Boolean updateOperation) {
+		this.updateOperation = updateOperation;
+	}
+
+	public Boolean getDeleteOperation() {
+		return deleteOperation;
+	}
+
+	public void setDeleteOperation(Boolean deleteOperation) {
+		this.deleteOperation = deleteOperation;
 	}
 
 }

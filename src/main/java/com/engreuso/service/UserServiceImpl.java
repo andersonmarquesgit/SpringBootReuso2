@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
 		if (user == null) {
 			throw new UserNotFoundException(id);
 		}else {
-			profile.setCustomer(user);
+			profile.setUser(user);
 			orderRepository.save(profile);
 		}
 		return user;
