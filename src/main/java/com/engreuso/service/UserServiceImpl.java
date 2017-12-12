@@ -63,4 +63,16 @@ public class UserServiceImpl implements UserService {
 		return userRepository.findAll(spec);
 	}
 
+	@Override
+	public Iterable getProfilesByUserID(Long id) {
+		User user = userRepository.findOne(id);
+		Iterable profiles;
+		if (user == null) {
+			throw new UserNotFoundException(id);
+		}else {
+			profiles = user.getProfiles();
+		}
+		return profiles;
+	}
+
 }

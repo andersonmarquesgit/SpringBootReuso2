@@ -14,5 +14,6 @@ public interface UserService {
 	User update(Long id, User userUpdated);
 	void delete(Long id);
 	List<User> findAll(Specification<User> spec);
+	Iterable getProfilesByUserID(Long id);
 
 }

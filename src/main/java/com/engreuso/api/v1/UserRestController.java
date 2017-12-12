@@ -67,4 +67,9 @@ public class UserRestController {
         Specification<User> spec = builder.build();
         return userService.findAll(spec);
     }
+	
+	@RequestMapping(value = "/{id}/profiles", method = RequestMethod.GET)
+	public Iterable getProfilesByUserID(@PathVariable("id") Long id) {
+		return userService.getProfilesByUserID(id);
+	}
 }
