@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.engreuso.model.User;
 import com.engreuso.service.UserService;
+import com.engreuso.specifications.UserSpecificationsBuilder;
 
 @RestController
 @RequestMapping("/users")

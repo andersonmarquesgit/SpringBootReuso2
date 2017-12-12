@@ -8,7 +8,7 @@ import com.engreuso.model.User;
 
 public interface UserService {
 
-	User save(User customer);
+	User save(User user);
 	Iterable<User> findAll();
 	User findOne(Long id);
 	User update(Long id, User userUpdated);

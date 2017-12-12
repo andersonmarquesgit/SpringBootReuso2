@@ -1,4 +1,4 @@
-package com.engreuso.api.v1;
+package com.engreuso.specifications;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;

@@ -56,7 +56,6 @@ public class UserServiceImpl implements UserService {
 		} else {
 			userRepository.delete(user);
 		}
-
 	}
 
 	@Override

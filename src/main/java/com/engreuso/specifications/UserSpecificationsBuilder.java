@@ -1,4 +1,4 @@
-package com.engreuso.api.v1;
+package com.engreuso.specifications;
 
 import java.util.ArrayList;
 import java.util.List;
