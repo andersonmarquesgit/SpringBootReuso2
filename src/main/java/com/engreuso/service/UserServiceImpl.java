@@ -1,12 +1,13 @@
 package com.engreuso.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.engreuso.exceptions.UserNotFoundException;
-import com.engreuso.model.Profile;
 import com.engreuso.model.User;
-import com.engreuso.repository.ProfileRepository;
 import com.engreuso.repository.UserRepository;
 
 @Service
@@ -14,9 +15,6 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;
-	
-	@Autowired
-	private ProfileRepository orderRepository;
 
 	@Override
 	public User save(User customer) {
@@ -24,28 +22,29 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Iterable findAll() {
+	public Iterable<User> findAll() {
 		return userRepository.findAll();
 	}
 
 	@Override
 	public User findOne(Long id) {
 		User user = userRepository.findOne(id);
-		if (user == null) throw new UserNotFoundException(id);
-		
+		if (user == null)
+			throw new UserNotFoundException(id);
+
 		return user;
 	}
 
 	@Override
 	public User update(Long id, User customerUpdated) {
 		User user = userRepository.findOne(id);
-		
+
 		if (user == null) {
 			throw new UserNotFoundException(id);
-		}else {
+		} else {
 			user.setName(customerUpdated.getName());
 		}
-		
+
 		return userRepository.save(user);
 	}
 
@@ -54,10 +53,15 @@ public class UserServiceImpl implements UserService {
 		User user = userRepository.findOne(id);
 		if (user == null) {
 			throw new UserNotFoundException(id);
-		}else {
-			userRepository.delete(user);		
+		} else {
+			userRepository.delete(user);
 		}
-		
+
+	}
+
+	@Override
+	public List<User> findAll(Specification<User> spec) {
+		return userRepository.findAll(spec);
 	}
 
 }

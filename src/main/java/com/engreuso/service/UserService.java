@@ -1,14 +1,18 @@
 package com.engreuso.service;
 
-import com.engreuso.model.Profile;
+import java.util.List;
+
+import org.springframework.data.jpa.domain.Specification;
+
 import com.engreuso.model.User;
 
 public interface UserService {
 
 	User save(User customer);
-	Iterable findAll();
+	Iterable<User> findAll();
 	User findOne(Long id);
 	User update(Long id, User userUpdated);
 	void delete(Long id);
+	List<User> findAll(Specification<User> spec);
 
 }
