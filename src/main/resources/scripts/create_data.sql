@@ -9,14 +9,14 @@ INSERT INTO tb_function(id, type, description)
     VALUES (3,'Função Reservada', 'Funcionalidade acessada apenas pela Intranet');
     
 -- Inserts de TB_USER --
-INSERT INTO tb_user(id, name, email, password, age, user_type)
-    VALUES (1,'Anderson Marques', 'andersonmarques.ci@gmail.com', '123Mudar', 32, 'Administrador');
+INSERT INTO tb_user(id, name, email, password, age)
+    VALUES (1,'Anderson Marques', 'andersonmarques.ci@gmail.com', '123Mudar', 32);
 
-INSERT INTO tb_user(id, name, email, password, age, user_type)
-    VALUES (2,'Carlos Alberto', 'calberto@gmail.com', '123Mudar', 34, 'Usuario');
+INSERT INTO tb_user(id, name, email, password, age)
+    VALUES (2,'Carlos Alberto', 'calberto@gmail.com', '123Mudar', 34);
     
-INSERT INTO tb_user(id, name, email, password, age, user_type)
-    VALUES (3,'Heloisa Maria', 'helomaria@gmail.com', '123Mudar', 29, 'Usuario');
+INSERT INTO tb_user(id, name, email, password, age)
+    VALUES (3,'Heloisa Maria', 'helomaria@gmail.com', '123Mudar', 29);
     
 -- Inserts de TB_PROFILE --
 INSERT INTO tb_profile(id, view, insert, update, delete, function_id, user_id)

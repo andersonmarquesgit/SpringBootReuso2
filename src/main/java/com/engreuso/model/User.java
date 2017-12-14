@@ -3,10 +3,7 @@ package com.engreuso.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,10 +28,6 @@ public class User {
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="user")
 	private List<Profile> profiles;
-	
-	@Enumerated(EnumType.STRING)
-	@Column(name="user_type")
-    private UserType userType;
 	
 	public Long getId() {
 		return id;
@@ -82,14 +75,6 @@ public class User {
 
 	public void setAge(Integer age) {
 		this.age = age;
-	}
-
-	public UserType getUserType() {
-		return userType;
-	}
-
-	public void setUserType(UserType userType) {
-		this.userType = userType;
 	}
 
 }
